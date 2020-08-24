@@ -1,0 +1,18 @@
+.cartImgDiv {
+  height: 42px;
+}
+.cartImgDiv img {
+  height: 42px;
+  width: 38px;
+}
+.trashDiv {
+  height: 20px;
+  width: 20px;
+  /* background-color: pink; */
+  display: flex;
+  justify-content: center;
+}
+.trashDiv svg {
+  height: 18px;
+  width: 18px;
+}
