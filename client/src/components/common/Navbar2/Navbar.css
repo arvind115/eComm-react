@@ -1,0 +1,167 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: arial;
+}
+header {
+  height: 40px;
+  width: 100%;
+  float: left;
+  background: #2c3e50; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #3498db,
+    #2c3e50
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #3498db,
+    #2c3e50
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  padding: 0 20px;
+  color: #fff;
+}
+
+.brand-logo {
+  width: 40px;
+  height: 100%;
+  float: left;
+  padding: 8px 4px;
+  margin-right: 40px;
+  background-color: blue;
+}
+.brand-logo img {
+  width: 100%;
+  height: 100%;
+}
+header > nav {
+  height: 100%;
+}
+.navigation {
+  height: 100%;
+  margin: 0px;
+  float: left;
+}
+.right {
+  height: 100%;
+  margin: 0px;
+  float: right;
+}
+.navigation li {
+  list-style: none;
+  float: left;
+  height: 38px;
+  /* background-color:yellow; */
+}
+.navigation li a {
+  height: 38px;
+  color: #fff;
+  padding: 6px 15px;
+  font-size: 14px;
+  text-transform: uppercase;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  /* background-color:blue */
+}
+.navigation li a:hover {
+  transform: scale(1.02);
+}
+.navigation li:hover::after {
+  content: "";
+  display: flex;
+  width: 100%;
+  justify-items: center;
+  height: 2px;
+  background-color: pink;
+}
+.navigation li a i {
+  width: auto;
+  font-size: 16px;
+  margin: 4px 4px 4px 4px;
+}
+.show-menu-btn,
+.hide-menu-btn {
+  transition: 0.4s;
+  font-size: 30px;
+  cursor: pointer;
+  display: none;
+}
+.show-menu-btn {
+  margin: 0px;
+  float: right;
+}
+.show-menu-btn i {
+  line-height: 40px;
+}
+#toggle-btn {
+  position: absolute;
+  visibility: hidden;
+  z-index: -1111;
+}
+ul li ul.dropdown {
+  width: 160px;
+  position: absolute;
+  background-color: red;
+  display: none;
+}
+ul.right li:hover ul.dropdown {
+  display: block;
+}
+/*-- Responsive CSS --*/
+@media screen and (max-width: 767px) {
+  .show-menu-btn,
+  .hide-menu-btn {
+    display: block;
+  }
+  .right,
+  .navigation {
+    position: fixed;
+    width: 100%;
+    height: 50vh;
+    background: green;
+    /* #000428;  */
+    /* background: -webkit-linear-gradient(
+            to right,
+            #004e92,
+            #000428
+          ); 
+          background: linear-gradient(
+            to right,
+            #004e92,
+            #000428
+          );  */
+
+    top: -100%;
+    left: 0;
+    padding: 50px 0px;
+    transition: 0.6s;
+    /* z-index: -990; */
+  }
+  .navigation li {
+    width: 100%;
+  }
+  .navigation li a {
+    padding: 15px 15px;
+    text-align: left;
+  }
+  .navigation li a i {
+    width: auto;
+    font-size: 20px;
+  }
+  .hide-menu-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+  }
+  #toggle-btn:checked ~ nav .navigation {
+    top: 0px;
+  }
+  #toggle-btn:checked ~ nav .right {
+    top: 40vh;
+    /* background-color: pink; */
+  }
+}

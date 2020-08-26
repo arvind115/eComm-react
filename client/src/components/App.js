@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 import Home from "./Home";
 import Navbar from "./common/Navbar";
+import Nav2 from "./common/Navbar2";
 import ProductList from "./products/ProductList";
 import CartDetail from "./cart/CartDetail";
 import Err404 from "./common/Err404";
@@ -31,6 +32,7 @@ class App extends Component {
             <Route exact path="/auth/google" component={Google} />
             <Route exact path="/auth/facebook" component={Facebook} />
             <Route exact path="/checkout" component={CheckoutPage} />
+            <Route exact path="/nav" component={Nav2} />
             <Route component={Err404} />
           </Switch>
         </Router>
