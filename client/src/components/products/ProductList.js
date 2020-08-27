@@ -1,9 +1,8 @@
 import React, { Component, memo } from "react";
 import { connect } from "react-redux";
-import { loadProducts } from "../../redux/actions/productActions";
+import { loadProducts } from "../../redux/actions/wishlistActions";
 
-// import ProductCard from "./ProductCard";
-import ProductCard2 from "./ProductCard2";
+import ProductCard from "./ProductCard";
 import Loader from "../common/Loader";
 
 export class ProductList extends Component {
@@ -20,7 +19,7 @@ export class ProductList extends Component {
           <Loader />
         ) : (
           this.props.products.map((product) => (
-            <ProductCard2 key={product._id} {...product} />
+            <ProductCard key={product._id} {...product} />
           ))
         )}
       </div>

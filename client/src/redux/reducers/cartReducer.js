@@ -4,7 +4,7 @@ import initialState from "../store/initialState";
 export default function cartReducer(cart = initialState.cart, action) {
   switch (action.type) {
     case types.ADD_PRODUCT_TO_CART:
-      var index = cart.findIndex(
+      const index = cart.findIndex(
         (product) => product._id === action.product._id
       );
       if (index === -1) {

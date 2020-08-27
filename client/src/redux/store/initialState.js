@@ -1,5 +1,5 @@
 export default {
-  products: [],
+  wishlist: [],
   cart: [],
   userData: {},
 };

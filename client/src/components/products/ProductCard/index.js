@@ -8,66 +8,65 @@ import {
 import {
   heartProduct,
   unHeartProduct,
-} from "../../../redux/actions/productActions";
-
+} from "../../../redux/actions/wishlistActions";
 import Heart from "../../common/Heart";
+import Cart from "../../common/Cart";
 
-export class ProductCard extends Component {
-  state = {
-    loading: true,
-    heart: false,
-  };
-  imageLoaded = () => {
-    this.setState({ loading: false });
-  };
+import "./ProductCard2.css";
 
+export class ProductCard2 extends Component {
   handleClick = () => {
-    this.props.inCart === undefined || this.props.inCart === false
-      ? this.props.addProductToCart(this.props)
-      : this.props.removeProductFromCart(this.props);
+    this.props.inCart
+      ? this.props.removeProductFromCart(this.props)
+      : this.props.addProductToCart(this.props);
   };
 
   handleHeart = () => {
-    this.props.heart === undefined || this.props.heart === false
-      ? this.props.heartProduct(this.props)
-      : this.props.unHeartProduct(this.props);
+    this.props.heart
+      ? this.props.unHeartProduct(this.props._id)
+      : this.props.heartProduct(this.props._id);
   };
 
   render() {
-    const { brand, img, sizes, discount, inCart, heart } = this.props;
+    // discount
+    const { brand, img, sizes, inCart, heart } = this.props;
     const actualprice = this.props["actual-price"];
     const name = this.props["product-name"];
     return (
-      <div>
-        {this.loading ? (
-          <p>loading...</p>
-        ) : (
-          <img
-            src={img}
-            alt="product"
-            style={{ height: "300px", width: "300px" }}
-            onLoad={this.imageLoaded}
-          />
-        )}{" "}
-        <Heart
-          fill={heart === true ? "red" : "blue"}
-          onClick={this.handleHeart}
-        />
-        Brand: <b>{brand}</b>
-        Name: <b>{name}</b>
-        Sizes:{" "}
-        {sizes.map((size) => (
-          <i key={size}>{size}</i>
-        ))}{" "}
-        Discount: <b>{discount === true ? "yes" : "no"}</b>
-        Price: <b>{actualprice}</b>
-        <button onClick={this.handleClick}>
-          {inCart === undefined || inCart === false ? (
-            <p>Add to Cart</p>
-          ) : (
-            <p>Remove from cart</p>
-          )}
-        </button>
+      <div className="card">
+        <div className="upper">
+          <div className="heartDiv">
+            <Heart
+              fill={heart === true ? "red" : "grey"}
+              onClick={this.handleHeart}
+            />
+          </div>
+          <img src={img} className="first-image" alt="" />
+        </div>
+        <div className="lower">
+          <div className="sizeCart">
+            <div className="sizeDiv">Size : {sizes.map((size) => size)}</div>
+            <div className="cartDiv" onClick={this.handleClick}>
+              <Cart inCart={inCart} handleClick={this.handleClick} />
+            </div>
+          </div>
+          <div className="nameBrand">
+            <div className="prodName">{name}</div>
+            <div className="brandName">
+              <strong>{brand}</strong>
+              <span className="badge badge-pill badge-primary price">
+                {actualprice}
+              </span>
+              {inCart ? (
+                <span className="badge badge-pill badge-primary incart-pill">
+                  In Cart
+                </span>
+              ) : (
+                ``
+              )}
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
@@ -84,4 +83,4 @@ const mapDispatchToProps = {
   unHeartProduct,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ProductCard);
+export default connect(mapStateToProps, mapDispatchToProps)(ProductCard2);

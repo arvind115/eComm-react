@@ -1,16 +1,18 @@
 import React from "react";
 import "./Navbar.css";
 
+import { Link } from "react-router-dom";
+
 export default function Navbar() {
   return (
     <header>
       <div className="brand-logo">
-        <a href="/">
+        <Link to="/">
           <img
             src="https://www.uiuxstream.com/images/white-logo-icon.png"
             alt="Brand Logo"
           />
-        </a>
+        </Link>
       </div>
 
       <input type="checkbox" id="toggle-btn" />
@@ -20,98 +22,98 @@ export default function Navbar() {
       <nav>
         <ul className="navigation">
           <li>
-            <a href="/">
+            <Link to="/">
               <i className="fas fa-house-damage"></i> Men
-            </a>
+            </Link>
             <ul className="dropdown">
               <h6>Topwear</h6>
               <hr />
               <li>
-                <a href="/men-casual-shirts">Casual Shirts</a>
+                <Link to="/men-casual-shirts">Casual Shirts</Link>
               </li>
               <li>
-                <a href="/men-formal-shirts">Formal Shirts</a>
+                <Link to="/men-formal-shirts">Formal Shirts</Link>
               </li>
               <li>
-                <a href="/men-kurtas">Kurtas</a>
+                <Link to="/men-kurtas">Kurtas</Link>
               </li>
               <li>
-                <a href="/men-tshirts">T-shirts</a>
+                <Link to="/men-tshirts">T-shirts</Link>
               </li>
               <h6>Bottomwear</h6>
               <hr />
               <li>
-                <a href="/men-casual-trousers">Casual Trousers</a>
+                <Link to="/men-casual-trousers">Casual Trousers</Link>
               </li>
               <li>
-                <a href="/men-formal-trousers">Formal Trousers</a>
+                <Link to="/men-formal-trousers">Formal Trousers</Link>
               </li>
               <li>
-                <a href="/men-jeans">Jeans</a>
+                <Link to="/men-jeans">Jeans</Link>
               </li>
               <h6>Footwear</h6>
               <hr />
               <li>
-                <a href="/men-casual-shoes">Casual shoes</a>
+                <Link to="/men-casual-shoes">Casual shoes</Link>
               </li>
               <li>
-                <a href="/men-sports-shoes">Sports shoes</a>
+                <Link to="/men-sports-shoes">Sports shoes</Link>
               </li>
             </ul>
           </li>
           <li>
-            <a href="/">
+            <Link to="/">
               <i className="far fa-image"></i> Women
-            </a>
+            </Link>
             <ul className="dropdown">
               <h6>Indian</h6>
               <hr />
               <li>
-                <a href="/ethnic-tops">Ethnic Tops</a>
+                <Link to="/ethnic-tops">Ethnic Tops</Link>
               </li>
               <li>
-                <a href="/ethnic-wear-dresses-menu">Ethnic Dresses</a>
+                <Link to="/ethnic-wear-dresses-menu">Ethnic Dresses</Link>
               </li>
               <li>
-                <a href="/saree">Saree</a>
+                <Link to="/saree">Saree</Link>
               </li>
               <li>
-                <a href="/women-kurtas-kurtis-suits">Kurtas/Suits</a>
+                <Link to="/women-kurtas-kurtis-suits">Kurtas/Suits</Link>
               </li>
               <h6>Western wear</h6>
               <hr />
               <li>
-                <a href="/western-wear-dresses-menu">Dresses</a>
+                <Link to="/western-wear-dresses-menu">Dresses</Link>
               </li>
               <li>
-                <a href="/women-jeans-jeggings">Jeans</a>
+                <Link to="/women-jeans-jeggings">Jeans</Link>
               </li>
               <li>
-                <a href="/women-shirts-tops-tees">Shirts/Tees</a>
+                <Link to="/women-shirts-tops-tees">Shirts/Tees</Link>
               </li>
               <h6>Footwear</h6>
               <hr />
               <li>
-                <a href="/flats">Flats</a>
+                <Link to="/flats">Flats</Link>
               </li>
               <li>
-                <a href="/women-casual-shoes">Casual shoes</a>
+                <Link to="/women-casual-shoes">Casual shoes</Link>
               </li>
             </ul>
           </li>
           <li>
-            <a href="/">
+            <Link to="/">
               <i className="fas fa-question"></i> Essentials
-            </a>
+            </Link>
             <ul className="dropdown">
               <li>
-                <a href="/haircare">Haircare</a>
+                <Link to="/haircare">Haircare</Link>
               </li>
               <li>
-                <a href="/men-grooming">Men grooming</a>
+                <Link to="/men-grooming">Men grooming</Link>
               </li>
               <li>
-                <a href="/skincare">Skincare</a>
+                <Link to="/skincare">Skincare</Link>
               </li>
             </ul>
           </li>
@@ -122,26 +124,26 @@ export default function Navbar() {
         </ul>
         <ul className="navigation right">
           <li>
-            <a href="/">
+            <Link to="/">
               <i className="fas fa-user"></i> Profile
-            </a>
+            </Link>
             <ul className="dropdown">
               <li>
-                <a href="/">Laptops</a>
+                <Link to="/">Laptops</Link>
               </li>
               <li>
-                <a href="/">Monitors</a>
+                <Link to="/">Monitors</Link>
               </li>
               <li>
-                <a href="/">Printers</a>
+                <Link to="/">Printers</Link>
               </li>
             </ul>
           </li>
           <li>
-            <a href="/">Wishlist</a>
+            <Link to="/">Wishlist</Link>
           </li>
           <li>
-            <a href="/">Bag</a>
+            <Link to="/">Bag</Link>
           </li>
         </ul>
       </nav>

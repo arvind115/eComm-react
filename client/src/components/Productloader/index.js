@@ -1,10 +1,15 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+
+import ProductCard from "../products/ProductCard";
+import Loader from "../common/Loader";
 
 class ProductLoader extends Component {
   constructor() {
     super();
     this.state = {
-      producsts: [],
+      products: [],
+      loading: true,
     };
   }
   async componentDidMount() {
@@ -14,21 +19,33 @@ class ProductLoader extends Component {
     );
     const js = await res.json();
     console.log(js);
-    this.setState({ producsts: js });
+    this.setState({ products: js, loading: false });
   }
   render() {
     return (
       <div>
-        here
-        {this.state.producsts.map((prod) => (
-          <>
-            <b>{prod.brand}</b>
-            <br />
-          </>
-        ))}
+        {this.state.loading ? (
+          <Loader />
+        ) : (
+          this.state.products.map((product) => (
+            <ProductCard
+              key={product._id}
+              {...product}
+              inCart={this.props.cart.some((prod) => prod._id === product._id)}
+              heart={this.props.wishlist.some((id) => id === product._id)}
+            />
+          ))
+        )}
       </div>
     );
   }
 }
 
-export default ProductLoader;
+function mapStateToProps(state, ownProps) {
+  return {
+    cart: state.cart,
+    wishlist: state.wishlist,
+  };
+}
+
+export default connect(mapStateToProps)(ProductLoader);
