@@ -105,6 +105,7 @@ class Navigation extends Component {
             <NavItem path="/auth/facebook" name="facebook" />
             <NavItem path="/auth/google" name="google" />
             <NavItem path="/checkout" name="checkout" />
+            <NavItem path="/nav" name="Nav" />
 
             <NavDropdown name="Dropdown">
               <a className="dropdown-item" href="/">

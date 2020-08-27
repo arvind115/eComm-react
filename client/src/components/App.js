@@ -1,5 +1,6 @@
 import React, { Component, memo } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
 // import logo from "./logo.svg";
 import "./App.css";
 import Home from "./Home";
@@ -17,6 +18,8 @@ import Google from "./OAuth/Google";
 
 import CheckoutPage from "./checkout/CheckoutPage";
 
+import ProductLoader from "./Productloader";
+
 class App extends Component {
   render() {
     return (
@@ -33,6 +36,16 @@ class App extends Component {
             <Route exact path="/auth/facebook" component={Facebook} />
             <Route exact path="/checkout" component={CheckoutPage} />
             <Route exact path="/nav" component={Nav2} />
+            <Route
+              exact
+              path="/:collection"
+              component={(props) => {
+                console.log(props);
+                return (
+                  <ProductLoader collection={props.match.params.collection} />
+                );
+              }}
+            />
             <Route component={Err404} />
           </Switch>
         </Router>

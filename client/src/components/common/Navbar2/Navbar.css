@@ -108,7 +108,10 @@ ul li ul.dropdown {
   background-color: red;
   display: none;
 }
-ul.right li:hover ul.dropdown {
+ul li ul.dropdown li {
+  width: 100%;
+}
+ul li:hover ul.dropdown {
   display: block;
 }
 /*-- Responsive CSS --*/
