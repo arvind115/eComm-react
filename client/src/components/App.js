@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 // import logo from "./logo.svg";
 import "./App.css";
 import Home from "./Home";
-import Navbar from "./common/Navbar";
+// import Navbar from "./common/Navbar";
 import Nav2 from "./common/Navbar2";
 import ProductList from "./products/ProductList";
 import CartDetail from "./cart/CartDetail";
@@ -25,7 +25,7 @@ class App extends Component {
     return (
       <div>
         <Router>
-          <Navbar />
+          <Nav2 />
           <Switch>
             <Route exact path="/home" component={Home} />
             <Route path="/products" exact component={ProductList} />

@@ -8,6 +8,7 @@ var config = require("../config");
 const jwt = require("jsonwebtoken");
 require("../passport")();
 
+const mongoose = require("mongoose");
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 // router.route("/auth/twitter/reverse").post(function (req, res) {
 //   request.post(
@@ -106,17 +107,15 @@ router.route("/auth/google").post(
   sendToken
 );
 
-const mongoose = require("mongoose");
-
 router.get("/home", (req, res) => {
   res.json({ hi: "hi" });
 });
 
 router.get("/:products", (req, res) => {
   try {
-    const [, collection] = req.url.replace(/-/g, "_").split("=");
-    console.log(collection);
-    mongoose.connection.db.collection(collection, (err, coll) => {
+    console.log(req.url);
+    const [, collec] = req.url.replace(/-/g, "_").split("=");
+    mongoose.connection.db.collection(collec, (err, coll) => {
       if (err) throw err;
       coll.find({}).toArray((err, data) => {
         if (err) throw err;
