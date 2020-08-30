@@ -19,6 +19,7 @@ import Google from "./OAuth/Google";
 import CheckoutPage from "./checkout/CheckoutPage";
 
 import ProductLoader from "./Productloader";
+import SlideShow from "../components/SlideShow";
 
 class App extends Component {
   render() {
@@ -27,7 +28,7 @@ class App extends Component {
         <Router>
           <Nav2 />
           <Switch>
-            <Route exact path="/home" component={Home} />
+            <Route exact path="/" component={Home} />
             <Route path="/products" exact component={ProductList} />
             <Route path="/cart" component={CartDetail} />
             <Route exact path="/login" component={Login} />
@@ -36,6 +37,7 @@ class App extends Component {
             <Route exact path="/auth/facebook" component={Facebook} />
             <Route exact path="/checkout" component={CheckoutPage} />
             <Route exact path="/nav" component={Nav2} />
+            <Route exact path="/slideshow" component={SlideShow} />
             <Route
               exact
               path="/:collection"
