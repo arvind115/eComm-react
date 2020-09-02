@@ -29,7 +29,7 @@ export class ProductCard2 extends Component {
 
   render() {
     // discount
-    const { brand, img, sizes, inCart, heart } = this.props;
+    const { brand, img, sizes, inCart, heart,_id } = this.props;
     const actualprice = this.props["actual-price"];
     const name = this.props["product-name"];
     return (
@@ -41,7 +41,9 @@ export class ProductCard2 extends Component {
               onClick={this.handleHeart}
             />
           </div>
-          <img src={img} className="first-image" alt="" />
+          <a href={`${window.location.pathname}/${_id}`}>
+            <img src={img} className="first-image" alt="" />
+          </a>
         </div>
         <div className="lower">
           <div className="sizeCart">

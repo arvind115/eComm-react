@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import ProductCard from "../products/ProductCard";
 import Loader from "../common/Loader";
 
-function ProductLoader(props) {
+const ProductLoader = (props) => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -26,9 +26,9 @@ function ProductLoader(props) {
       {loading ? (
         <Loader />
       ) : (
-        products.map((product) => (
+        products.map((product, ind) => (
           <ProductCard
-            key={product._id}
+            key={ind}
             {...product}
             inCart={props.cart.some((prod) => prod._id === product._id)}
             heart={props.wishlist.some((id) => id === product._id)}
@@ -37,7 +37,7 @@ function ProductLoader(props) {
       )}
     </div>
   );
-}
+};
 
 function mapStateToProps(state, ownProps) {
   return {

@@ -9,6 +9,7 @@ const jwt = require("jsonwebtoken");
 require("../passport")();
 
 const mongoose = require("mongoose");
+
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 // router.route("/auth/twitter/reverse").post(function (req, res) {
 //   request.post(
@@ -113,13 +114,30 @@ router.get("/home", (req, res) => {
 
 router.get("/:products", (req, res) => {
   try {
-    console.log(req.url);
     const [, collec] = req.url.replace(/-/g, "_").split("=");
+    console.log(collec);
     mongoose.connection.db.collection(collec, (err, coll) => {
       if (err) throw err;
       coll.find({}).toArray((err, data) => {
         if (err) throw err;
         res.status(200).json(data.slice(0, 5));
+      });
+    });
+  } catch (err) {
+    throw err;
+  }
+});
+
+router.get("/:products/:id", (req, res) => {
+  const [, collecStr, id] = req.url.split("=");
+  const collec = collecStr.split("/")[0].replace(/-/g, "_");
+  console.log(collec);
+  try {
+    mongoose.connection.db.collection(collec, (err, coll) => {
+      if (err) throw err;
+      coll.find({ _id: mongoose.Types.ObjectId(id) }).toArray((err, data) => {
+        if (err) throw err;
+        res.status(200).json(data[0]);
       });
     });
   } catch (err) {
