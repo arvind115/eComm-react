@@ -18,6 +18,8 @@ import ProductLoader from "./Productloader";
 import ProductDetail from "./ProductDetail";
 import SlideShow from "../components/SlideShow";
 
+import Wishlist from "../components/Wishlist";
+
 class App extends Component {
   render() {
     return (
@@ -33,6 +35,7 @@ class App extends Component {
             <Route exact path="/checkout" component={CheckoutPage} />
             <Route exact path="/nav" component={Nav2} />
             <Route exact path="/slideshow" component={SlideShow} />
+            <Route exact path="/wishlist" component={Wishlist} />
             <Route
               exact
               path="/:collection"

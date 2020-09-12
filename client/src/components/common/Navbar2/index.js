@@ -89,7 +89,7 @@ export default function Navbar() {
             </div>
           </li>
           <li>
-            <Link to="/">Wishlist</Link>
+            <Link to="/wishlist">Wishlist</Link>
           </li>
           <li>
             <Link to="/">Bag</Link>
