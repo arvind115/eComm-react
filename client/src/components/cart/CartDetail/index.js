@@ -3,7 +3,8 @@ import { connect } from "react-redux";
 
 import { removeProductFromCart } from "../../../redux/actions/cartActions";
 
-import Row from "./Row";
+import Row from "../../common/Row";
+import TrashCan from "../../common/TrashCan";
 
 export class CartDetail extends Component {
   render() {
@@ -25,13 +26,14 @@ export class CartDetail extends Component {
                 </tr>
               </thead>
               <tbody>
-                {this.props.cartProducts.length > 0 &&
+                {this.props.cartProducts.length &&
                   this.props.cartProducts.map((product, ind) => (
                     <Row
                       no={ind + 1}
                       {...product}
-                      trash={this.props.removeProductFromCart}
                       key={product._id}
+                      icon={TrashCan}
+                      iconClick={this.props.removeProductFromCart}
                     />
                   ))}
               </tbody>

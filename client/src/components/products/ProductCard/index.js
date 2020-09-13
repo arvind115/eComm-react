@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import {
   addProductToCart,
   removeProductFromCart,
@@ -12,9 +13,9 @@ import {
 import Heart from "../../common/Heart";
 import Cart from "../../common/Cart";
 
-import "./ProductCard2.css";
+import "./ProductCard.css";
 
-export class ProductCard2 extends Component {
+export class ProductCard extends Component {
   handleClick = () => {
     this.props.inCart
       ? this.props.removeProductFromCart(this.props)
@@ -23,13 +24,13 @@ export class ProductCard2 extends Component {
 
   handleHeart = () => {
     this.props.heart
-      ? this.props.unHeartProduct(this.props._id)
-      : this.props.heartProduct(this.props._id);
+      ? this.props.unHeartProduct(this.props)
+      : this.props.heartProduct(this.props);
   };
 
   render() {
     // discount
-    const { brand, img, sizes, inCart, heart,_id } = this.props;
+    const { brand, img, sizes, inCart, heart, _id } = this.props;
     const actualprice = this.props["actual-price"];
     const name = this.props["product-name"];
     return (
@@ -41,9 +42,9 @@ export class ProductCard2 extends Component {
               onClick={this.handleHeart}
             />
           </div>
-          <a href={`${window.location.pathname}/${_id}`}>
+          <Link to={`${window.location.pathname}/${_id}`}>
             <img src={img} className="first-image" alt="" />
-          </a>
+          </Link>
         </div>
         <div className="lower">
           <div className="sizeCart">
@@ -85,4 +86,4 @@ const mapDispatchToProps = {
   unHeartProduct,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ProductCard2);
+export default connect(mapStateToProps, mapDispatchToProps)(ProductCard);

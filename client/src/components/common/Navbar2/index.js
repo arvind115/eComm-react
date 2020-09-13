@@ -92,7 +92,7 @@ export default function Navbar() {
             <Link to="/wishlist">Wishlist</Link>
           </li>
           <li>
-            <Link to="/">Bag</Link>
+            <Link to="/cart">Bag</Link>
           </li>
         </ul>
       </nav>

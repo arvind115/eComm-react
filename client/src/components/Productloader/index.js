@@ -31,7 +31,7 @@ const ProductLoader = (props) => {
             key={ind}
             {...product}
             inCart={props.cart.some((prod) => prod._id === product._id)}
-            heart={props.wishlist.some((id) => id === product._id)}
+            heart={props.wishlist.some((prod) => prod._id === product._id)}
           />
         ))
       )}

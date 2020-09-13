@@ -19,20 +19,20 @@ export function loadProducts() {
   };
 }
 
-export function heartProduct(id) {
+export function heartProduct(product) {
   return function (dispatch) {
     dispatch({
       type: types.HEART_THE_PRODUCT,
-      id,
+      product,
     });
   };
 }
 
-export function unHeartProduct(id) {
+export function unHeartProduct(product) {
   return function (dispatch) {
     dispatch({
       type: types.UNHEART_THE_PRODUCT,
-      id,
+      product,
     });
   };
 }

@@ -1,9 +1,7 @@
 import React from "react";
 import "./Row.css";
 
-import TrashCan from "./TrashCan";
-
-export default function Row(props) {
+export default function Row({ icon: Icon, ...props }) {
   return (
     <tr>
       <th scope="row">{props.no}</th>
@@ -16,11 +14,8 @@ export default function Row(props) {
       <td>{props.brand}</td>
       <td>{props["actual-price"].match(/\d+/g)[0]}</td>
       <td>
-        <div
-          className="trashDiv"
-          onClick={() => props.removeProductFromCart(props)}
-        >
-          <TrashCan />
+        <div className="trashDiv" onClick={() => props.iconClick(props)}>
+          <Icon fill={"red"} />
         </div>
       </td>
     </tr>

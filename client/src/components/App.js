@@ -35,7 +35,7 @@ class App extends Component {
             <Route exact path="/checkout" component={CheckoutPage} />
             <Route exact path="/nav" component={Nav2} />
             <Route exact path="/slideshow" component={SlideShow} />
-            <Route exact path="/wishlist" component={Wishlist} />
+            <Route path="/wishlist" component={Wishlist} />
             <Route
               exact
               path="/:collection"
