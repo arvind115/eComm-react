@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
 import { removeProductFromCart } from "../../../redux/actions/cartActions";
@@ -39,6 +40,7 @@ export class CartDetail extends Component {
               </tbody>
             </table>
             Total : {this.props.total}
+            <Link to="/checkout">Checkout</Link>
           </>
         )}
       </div>

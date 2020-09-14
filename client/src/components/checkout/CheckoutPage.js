@@ -1,9 +1,10 @@
 import React from "react";
-import { Route, Redirect } from "react-router-dom";
+import { Route } from "react-router-dom";
 import { connect } from "react-redux";
+import LoginRouter from "../HOC/LoginRouter";
+
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
-
 import CheckoutForm from "./CheckoutForm";
 
 // Make sure to call `loadStripe` outside of a component’s render to avoid
@@ -28,7 +29,11 @@ const GuardedRoute = ({ loggedIn, ...rest }) => (
   <Route
     {...rest}
     render={(props) =>
-      loggedIn ? <CheckoutPage {...props} /> : <Redirect to="/auth/google" />
+      loggedIn ? (
+        <CheckoutPage {...props} />
+      ) : (
+        <LoginRouter previous="/checkout" {...props} />
+      )
     }
   />
 );

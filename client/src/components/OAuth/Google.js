@@ -1,10 +1,17 @@
 import React, { Component } from "react";
+import { Redirect } from "react-router-dom";
 import GoogleLogin from "react-google-login";
 
 import { connect } from "react-redux";
 import { setUserData } from "../../redux/actions/userActions";
 
 export class Google extends Component {
+  constructor() {
+    super();
+    this.state = {
+      authenticated: false,
+    };
+  }
   responseFailure = (data) => {
     console.log("some error occured while Google log in..");
     console.log(data);
@@ -28,15 +35,19 @@ export class Google extends Component {
     if (token) {
       console.log("token recieved.");
       sessionStorage.setItem("jwt", token);
-      this.props.history.push("/home");
       // console.log(user);
-      // this.setState({ isAuthenticated: true, user, token });
+      this.setState({ isAuthenticated: true });
     }
     // console.log("authenticated..");
   };
-
   render() {
-    return (
+    return this.state.authenticated ? (
+      this.props.previous ? (
+        <Redirect to={this.props.previous} />
+      ) : (
+        <p>Redirected to /home </p>
+      )
+    ) : (
       <GoogleLogin
         clientId="365980861837-9iih8cediglpeut3fj7kc8dtt5ovp6v4.apps.googleusercontent.com"
         buttonText="Login"
