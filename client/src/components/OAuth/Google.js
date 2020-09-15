@@ -5,7 +5,7 @@ import GoogleLogin from "react-google-login";
 import { connect } from "react-redux";
 import { setUserData } from "../../redux/actions/userActions";
 
-export class Google extends Component {
+class Google extends Component {
   constructor() {
     super();
     this.state = {

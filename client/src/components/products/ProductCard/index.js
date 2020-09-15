@@ -23,7 +23,7 @@ export class ProductCard extends Component {
   };
 
   handleHeart = () => {
-    this.props.heart
+    this.props.loggedIn && this.props.heart
       ? this.props.unHeartProduct(this.props)
       : this.props.heartProduct(this.props);
   };
@@ -75,8 +75,11 @@ export class ProductCard extends Component {
   }
 }
 
-function mapStateToProps(state, ownProps) {
-  return ownProps;
+function mapStateToProps({ user }, ownProps) {
+  return {
+    loggedIn: user.name !== undefined,
+    ownProps,
+  };
 }
 
 const mapDispatchToProps = {

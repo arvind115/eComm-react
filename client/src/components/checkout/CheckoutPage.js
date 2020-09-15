@@ -6,6 +6,7 @@ import LoginRouter from "../HOC/LoginRouter";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import CheckoutForm from "./CheckoutForm";
+import Google from "../OAuth/Google";
 
 // Make sure to call `loadStripe` outside of a component’s render to avoid
 // recreating the `Stripe` object on every render.
@@ -32,7 +33,7 @@ const GuardedRoute = ({ loggedIn, ...rest }) => (
       loggedIn ? (
         <CheckoutPage {...props} />
       ) : (
-        <LoginRouter previous="/checkout" {...props} />
+        <LoginRouter previous="/checkout" component={Google} {...props} />
       )
     }
   />

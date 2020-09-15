@@ -3,10 +3,12 @@ import { connect } from "react-redux";
 
 import ProductCard from "../products/ProductCard";
 import Loader from "../common/Loader";
+import LoginRequired from "../HOC/LoginRouter";
 
 const ProductLoader = (props) => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [routeToLogin, setRouteToLogin] = useState(props.loggedIn);
 
   useEffect(() => {
     async function fetchData() {
@@ -21,10 +23,26 @@ const ProductLoader = (props) => {
     fetchData();
   }, [props.collection]);
 
+  useEffect(() => {
+    setRouteToLogin(!props.loggedIn);
+  }, [props.loggedIn]);
+
   return (
     <div>
       {loading ? (
         <Loader />
+      ) : routeToLogin ? (
+        <>
+          <p>
+            Route to login page ={" "}
+            {routeToLogin === true ? <b>True</b> : <b>False</b>}
+          </p>
+          <p>
+            User logged in ={" "}
+            {props.loggedIn === true ? <b>True</b> : <b>False</b>}
+          </p>
+          <LoginRequired previous={props.collection} />
+        </>
       ) : (
         products.map((product, ind) => (
           <ProductCard
@@ -43,6 +61,7 @@ function mapStateToProps(state, ownProps) {
   return {
     cart: state.cart,
     wishlist: state.wishlist,
+    loggedIn: state.user.name !== undefined,
   };
 }
 
