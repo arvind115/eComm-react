@@ -23,9 +23,12 @@ export class ProductCard extends Component {
   };
 
   handleHeart = () => {
-    this.props.loggedIn && this.props.heart
+    this.props.heartClicked(true);
+    if( this.props.loggedIn){
+      this.props.heart
       ? this.props.unHeartProduct(this.props)
       : this.props.heartProduct(this.props);
+    }
   };
 
   render() {

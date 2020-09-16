@@ -36,7 +36,7 @@ class Google extends Component {
       console.log("token recieved.");
       sessionStorage.setItem("jwt", token);
       // console.log(user);
-      this.setState({ isAuthenticated: true });
+      this.setState({ authenticated: true });
     }
     // console.log("authenticated..");
   };
@@ -45,7 +45,7 @@ class Google extends Component {
       this.props.previous ? (
         <Redirect to={this.props.previous} />
       ) : (
-        <p>Redirected to /home </p>
+        <Redirect to="/" />
       )
     ) : (
       <GoogleLogin

@@ -8,7 +8,8 @@ import LoginRequired from "../HOC/LoginRouter";
 const ProductLoader = (props) => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [routeToLogin, setRouteToLogin] = useState(props.loggedIn);
+  const [routeToLogin, setRouteToLogin] = useState(false);
+  const [heartClicked, setHeartClicked] = useState(false);
 
   useEffect(() => {
     async function fetchData() {
@@ -24,8 +25,10 @@ const ProductLoader = (props) => {
   }, [props.collection]);
 
   useEffect(() => {
-    setRouteToLogin(!props.loggedIn);
-  }, [props.loggedIn]);
+    if (heartClicked) {
+      setRouteToLogin(!props.loggedIn);
+    }
+  }, [props.loggedIn,heartClicked]);
 
   return (
     <div>
@@ -50,6 +53,7 @@ const ProductLoader = (props) => {
             {...product}
             inCart={props.cart.some((prod) => prod._id === product._id)}
             heart={props.wishlist.some((prod) => prod._id === product._id)}
+            heartClicked={setHeartClicked}
           />
         ))
       )}

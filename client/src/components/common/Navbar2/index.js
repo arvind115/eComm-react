@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import "./Navbar.css";
 import catalogues from "./catalouge";
 
+import { connect } from "react-redux";
+
 const ListMaker = (props) => {
   return (
     <ul>
@@ -31,7 +33,7 @@ const DropdownMaker = ({ sub }) => {
   );
 };
 
-export default function Navbar() {
+const Navbar = (props) => {
   return (
     <header>
       <div className="brand-logo">
@@ -59,7 +61,7 @@ export default function Navbar() {
             <i className="fas fa-times"></i>x
           </label>
         </ul>
-        <div id="search-form">
+        {/* <div id="search-form">
           <form className="form-inline search">
             <input
               className="form-control mr-sm-2"
@@ -68,22 +70,31 @@ export default function Navbar() {
               aria-label="Search"
             />
           </form>
-        </div>
+        </div> */}
         <ul className="navigation right">
           <li>
             <Link to="/">
               <i className="fas fa-user"></i> Profile
             </Link>
-            <div className="dropdown-div">
+            <div className="dropdown-div profile-dropdown">
               <ul>
                 <li>
-                  <Link to="/">Laptops</Link>
+                  <div className="profile-top">
+                    {props.user.name !== undefined ? (
+                      <p>{props.user.name}</p>
+                    ) : (
+                      <>
+                        <p>Welcome! To access account and manage orders</p>
+                        <Link to="/auth/google">Sign in</Link>
+                      </>
+                    )}
+                  </div>
                 </li>
                 <li>
-                  <Link to="/">Monitors</Link>
+                  <Link to="/wishlist">Wishlist</Link>
                 </li>
                 <li>
-                  <Link to="/">Printers</Link>
+                  <Link to="/">Orders</Link>
                 </li>
               </ul>
             </div>
@@ -98,4 +109,13 @@ export default function Navbar() {
       </nav>
     </header>
   );
+};
+
+function mapStateToProps({ user }, ownProps) {
+  return {
+    user,
+    ownProps,
+  };
 }
+
+export default connect(mapStateToProps)(Navbar);

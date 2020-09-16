@@ -100,7 +100,7 @@ header > nav {
 }
 
 /* dropdowns */
-li .dropdown-div {
+.dropdown-div {
   visibility: hidden;
   position: absolute;
   top: 40px;
@@ -116,12 +116,23 @@ li .dropdown-div {
   z-index: 10;
 }
 
-ul li .dropdown-div ul {
+.profile-dropdown{
+  background: seagreen;
+  color:blue;
+  width: 320px;
+  left:80vw;
+}
+
+.navigation li .dropdown-div ul {
   display: flex;
   flex-direction: column;
 }
 
-ul li:hover .dropdown-div {
+.navigation li .dropdown-div ul li{
+  height: auto;
+}
+
+.navigation li:hover .dropdown-div {
   visibility: visible;
 }
 .dropdown-div:focus {
