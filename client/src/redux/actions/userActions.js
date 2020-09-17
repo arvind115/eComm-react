@@ -16,3 +16,9 @@ export function getUserData() {
     });
   };
 }
+
+export function clearUserData() {
+  return function (dispatch) {
+    dispatch({ type: types.CLEAR_USER_DATA });
+  };
+}

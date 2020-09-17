@@ -4,6 +4,7 @@ import "./Navbar.css";
 import catalogues from "./catalouge";
 
 import { connect } from "react-redux";
+import { clearUserData } from "../../../redux/actions/userActions";
 
 const ListMaker = (props) => {
   return (
@@ -34,6 +35,10 @@ const DropdownMaker = ({ sub }) => {
 };
 
 const Navbar = (props) => {
+  const signOut = () => {
+    console.log("sign out clicked..");
+    props.clearUserData();
+  };
   return (
     <header>
       <div className="brand-logo">
@@ -81,7 +86,10 @@ const Navbar = (props) => {
                 <li>
                   <div className="profile-top">
                     {props.user.name !== undefined ? (
-                      <p>{props.user.name}</p>
+                      <>
+                        <p>{props.user.name}</p>
+                        <button onClick={signOut}>Sign Out</button>
+                      </>
                     ) : (
                       <>
                         <p>Welcome! To access account and manage orders</p>
@@ -118,4 +126,8 @@ function mapStateToProps({ user }, ownProps) {
   };
 }
 
-export default connect(mapStateToProps)(Navbar);
+const mapDispatchToProps = {
+  clearUserData,
+};
+
+export default connect(mapStateToProps,mapDispatchToProps)(Navbar);

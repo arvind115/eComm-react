@@ -8,7 +8,6 @@ import LoginRequired from "../HOC/LoginRouter";
 const ProductLoader = (props) => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [routeToLogin, setRouteToLogin] = useState(false);
   const [heartClicked, setHeartClicked] = useState(false);
 
   useEffect(() => {
@@ -25,20 +24,27 @@ const ProductLoader = (props) => {
   }, [props.collection]);
 
   useEffect(() => {
-    if (heartClicked) {
-      setRouteToLogin(!props.loggedIn);
-    }
+    if (props.loggedIn && heartClicked) {
+      setHeartClicked(false);
+    } 
   }, [props.loggedIn,heartClicked]);
 
   return (
     <div>
+      <p>
+        Heart clicked = {heartClicked === true ? <b>True</b> : <b>False</b>}
+      </p>
       {loading ? (
         <Loader />
-      ) : routeToLogin ? (
+      ) : heartClicked && !props.loggedIn ? (
         <>
           <p>
             Route to login page ={" "}
-            {routeToLogin === true ? <b>True</b> : <b>False</b>}
+            {(heartClicked && !props.loggedIn) === true ? (
+              <b>True</b>
+            ) : (
+              <b>False</b>
+            )}
           </p>
           <p>
             User logged in ={" "}
@@ -53,7 +59,7 @@ const ProductLoader = (props) => {
             {...product}
             inCart={props.cart.some((prod) => prod._id === product._id)}
             heart={props.wishlist.some((prod) => prod._id === product._id)}
-            heartClicked={setHeartClicked}
+            setHeartClicked={setHeartClicked}
           />
         ))
       )}

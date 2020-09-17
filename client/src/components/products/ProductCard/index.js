@@ -23,11 +23,11 @@ export class ProductCard extends Component {
   };
 
   handleHeart = () => {
-    this.props.heartClicked(true);
-    if( this.props.loggedIn){
+    this.props.setHeartClicked(true);
+    if (this.props.loggedIn) {
       this.props.heart
-      ? this.props.unHeartProduct(this.props)
-      : this.props.heartProduct(this.props);
+        ? this.props.unHeartProduct(this.props)
+        : this.props.heartProduct(this.props);
     }
   };
 
@@ -41,7 +41,7 @@ export class ProductCard extends Component {
         <div className="upper">
           <div className="heartDiv">
             <Heart
-              fill={heart === true ? "red" : "grey"}
+              fill={heart && this.props.loggedIn ? "red" : "grey"}
               onClick={this.handleHeart}
             />
           </div>
