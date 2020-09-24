@@ -26,8 +26,8 @@ const ProductLoader = (props) => {
   useEffect(() => {
     if (props.loggedIn && heartClicked) {
       setHeartClicked(false);
-    } 
-  }, [props.loggedIn,heartClicked]);
+    }
+  }, [props.loggedIn, heartClicked]);
 
   return (
     <div>

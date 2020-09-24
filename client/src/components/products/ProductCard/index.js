@@ -11,12 +11,13 @@ import {
   unHeartProduct,
 } from "../../../redux/actions/wishlistActions";
 import Heart from "../../common/Heart";
-import Cart from "../../common/Cart";
+import CartSvg from "../../common/CartSvg";
 
 import "./ProductCard.css";
 
 export class ProductCard extends Component {
-  handleClick = () => {
+  handleCart = () => {
+    console.log("cart clicked..");
     this.props.inCart
       ? this.props.removeProductFromCart(this.props)
       : this.props.addProductToCart(this.props);
@@ -32,12 +33,11 @@ export class ProductCard extends Component {
   };
 
   render() {
-    // discount
-    const { brand, img, sizes, inCart, heart, _id } = this.props;
+    const { img, inCart, heart, _id } = this.props;
     const actualprice = this.props["actual-price"];
     const name = this.props["product-name"];
     return (
-      <div className="card">
+      <div className="cardDiv">
         <div className="upper">
           <div className="heartDiv">
             <Heart
@@ -50,27 +50,10 @@ export class ProductCard extends Component {
           </Link>
         </div>
         <div className="lower">
-          <div className="sizeCart">
-            <div className="sizeDiv">Size : {sizes.map((size) => size)}</div>
-            <div className="cartDiv" onClick={this.handleClick}>
-              <Cart inCart={inCart} handleClick={this.handleClick} />
-            </div>
-          </div>
-          <div className="nameBrand">
-            <div className="prodName">{name}</div>
-            <div className="brandName">
-              <strong>{brand}</strong>
-              <span className="badge badge-pill badge-primary price">
-                {actualprice}
-              </span>
-              {inCart ? (
-                <span className="badge badge-pill badge-primary incart-pill">
-                  In Cart
-                </span>
-              ) : (
-                ``
-              )}
-            </div>
+          <div className="flatRow prodName">{name}</div>
+          <div className="flatRow">{actualprice}</div>
+          <div className="cartDiv" onClick={this.handleCart}>
+            <CartSvg inCart={inCart} handleClick={this.handleCart} />
           </div>
         </div>
       </div>

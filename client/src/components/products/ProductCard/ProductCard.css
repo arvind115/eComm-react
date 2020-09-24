@@ -1,298 +1,70 @@
 @import url("https://fonts.googleapis.com/css?family=Raleway|Roboto&display=swap");
 
-.container {
-  margin-top: 50px;
-}
-
-h1,
-.card-title,
-a,
-#toast {
-  font-family: "Roboto", sans-serif;
-}
-
-h1 {
-  color: #5c7cfa;
-}
-
-/* .heart {
-  color: #989898;
-  margin-top: 15px;
-  margin-left: 230px;
-  font-size: 30px;
-  position: absolute;
-  width: 40px;
-  height: 40px;
-  border-radius: 30px;
-  padding: 0px;
-  text-align: center;
-}
-
-.heart-active {
-  color: #c50707;
-}
-
-.heart:hover {
-  color: red;
-  background-color: #f9f9f9;
-  -webkit-transition: all 1s ease;
-  -moz-transition: all 1s ease;
-  -o-transition: all 1s ease;
-  transition: all 1s ease-in-out;
-}
-.hearti:hover {
-  fill: red;
-} */
-
-.card {
-  width: 18rem;
-  height: 480px;
+.cardDiv {
+  width: 200px;
+  height: 280px;
   position: relative;
-  margin: 12px;
-  box-shadow: 0px 15px 35px -5px rgba(50, 88, 130, 0.32);
-  border-radius: 15px;
-  /* background-color: pink; */
+  margin: 8px;
+  border: 1px solid grey;
   display: inline-flex;
-  overflow: hidden;
-}
-/* .card:hover {
-  transform: scale(1.01);
-} */
-/* .card img {
-  transition: all 0.5s ease;
-}*/
-.card:hover .upper .imgDiv {
-  transform: scale(1.04);
-  transition: all 0.5s ease;
-}
-.upper {
-  width: 100%;
-  height: 420px;
-  /* background-color: red; */
-  z-index: 9;
-  position: absolute;
-  /* opacity: 0.5; */
 }
 .upper .heartDiv {
-  width: 32px;
-  height: 32px;
-  position: absolute;
-  right: 8px;
-  top: 8px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  background-color: white;
-}
-.upper .heartDiv svg {
-  width: 28px;
-  height: 28px;
-  margin-top: 8px;
-}
-/* .upper .heartDiv svg:hover {
-  fill: red;
-} */
-.upper img {
-  height: 420px;
-}
-.lower {
-  position: absolute;
-  bottom: 0px;
-  width: 100%;
-  height: 120px;
-  /* background-color: blue; */
-  transition: all 0.5s ease;
-}
-.card:hover > .lower {
-  bottom: -62px;
-  overflow: hidden;
-  transition: all 0.5s ease;
-}
-
-.sizeCart {
-  width: 100%;
-  height: 60px;
-  /* background-color: red; */
-  display: flex;
-  justify-content: space-between;
-}
-
-.sizeDiv {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0px;
-  width: 14rem;
-  height: 60px;
-  border: none;
-  outline: none;
-  /* background-color: green; */
-}
-.cartDiv {
-  width: 4rem;
-  height: 60px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.cartDiv svg {
   width: 24px;
   height: 24px;
-}
-/* .cartDiv svg:hover {
-  fill: royalblue;
-} */
-
-.nameBrand {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  color: black;
-}
-.nameBrand .prodName {
-  display: flex;
-  justify-content: center;
-  /* background-color: green; */
-}
-.nameBrand .brandName {
-  display: flex;
-  justify-content: center;
-  /* background-color: violet; */
-}
-.badge-pill {
   position: absolute;
-  margin-top: 4px;
-  margin-right: 4px;
-  line-height: 12px;
-  font-size: 10px;
-}
-.incart-pill {
-  right: 5px;
-  background-color: green;
-}
-.price {
-  left: 5px;
+  right: 4px;
+  top: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* border-radius: 50%; */
+  background-color: white;
 }
 
-/* .card {
-  position: relative;
-  box-shadow: 0px 15px 35px -5px rgba(50, 88, 130, 0.32);
-  border-radius: 15px;
-  width: 18rem;
-  transition: all 0.2s ease;
+.upper .heartDiv svg {
+  width: 24px;
+  height: 24px;
+  margin-top: 8px;
 }
-.upper {
+
+.cardDiv .upper img {
   width: 100%;
-  height: 100px;
-  background-color: red;
-  z-index: 9;
-  position: absolute;
+  height: 220px;
 }
-.lower {
+.cardDiv .lower {
+  width: 100%;
+  height: 60px;
   position: absolute;
   bottom: 0px;
+  left: 0px;
+  /* background: green; */
+}
+.cardDiv .lower .flatRow {
   width: 100%;
-  height: 120px;
-  background-color: blue;
-  color: white;
-  transition: all 0.5s ease;
-} */
-/* .card-body {
-  padding: 10px;
-  margin-top: -50px;
-  -webkit-transition: all 1s ease;
-  -moz-transition: all 1s ease;
-  -o-transition: all 1s ease;
-  transition: all 1s ease-in-out;
-} */
-
-/* .card-body .sizes,
-.card-body a {
-  display: block;
-} */
-
-/* .card:hover > .card-body {
-  background-color: #fff;
-  z-index: 2;
-  -webkit-transition: all 1s ease;
-  -moz-transition: all 1s ease;
-  -o-transition: all 1s ease;
-  transition: all 1s ease;
-} */
-
-/* .card:hover > .card-body > a,
-.card:hover .sizes {
-  visibility: visible;
-} */
-
-.cart,
-.wish {
-  padding: 5px;
-  width: 50px;
-  height: 50px;
-  margin-left: -24px;
-  margin-top: 0px;
-  margin-right: 3px;
-  background-color: #fff;
-  color: #5c7cfa;
-  border-top-left-radius: 8px;
-  border-bottom-left-radius: 8px;
+  height: 18px;
+  font-size: 12px;
+  line-height: 12px;
+  margin-bottom: 4px;
+  text-overflow: hidden;
   text-align: center;
-  -ms-display: flex;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  /* background: pink; */
+}
+.cardDiv .lower .prodName {
+  font-size: 14px;
+  line-height: 14px;
+  margin-top: 8px;
 }
 
-.wish {
-  color: #c50707;
+.cardDiv .lower .cartDiv {
+  /* background:blue; */
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  right: 2px;
+  bottom: 4px;
+  z-index: 9999;
 }
-
-#toast,
-#toast-cart {
-  padding: 10px;
-  padding-left: 5px;
-  position: fixed;
-  width: 230px;
-  height: 50px;
-  top: 0;
-  left: 80%;
-  transform: translate(-50%);
-  background-color: #eff2ff;
-  color: #76777e;
-  padding: 1px;
-  border-radius: 8px;
-  text-align: center;
-  z-index: 1;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-  visibility: hidden;
-  opacity: 0;
-  -ms-display: flex;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 18px;
-}
-#toast.show,
-#toast-cart.show {
-  visibility: visible;
-  animation: fadeInOut 3s;
-}
-
-@keyframes fadeInOut {
-  5%,
-  95% {
-    opacity: 1;
-    top: 50px;
-  }
-  15%,
-  85% {
-    opacity: 1;
-    top: 30px;
-  }
-}
-
-a {
-  z-index: -1;
+.cardDiv .lower .cartDiv svg {
+  width: 18px;
+  height: 18px;
 }

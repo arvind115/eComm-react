@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 import catalogues from "./catalouge";
+import CartIcon from "../../cart/NavCartIcon";
 
 import { connect } from "react-redux";
 import { clearUserData } from "../../../redux/actions/userActions";
@@ -111,7 +112,9 @@ const Navbar = (props) => {
             <Link to="/wishlist">Wishlist</Link>
           </li>
           <li>
-            <Link to="/cart">Bag</Link>
+            <Link to="/cart">
+              <CartIcon className={'cartIcon'}/>
+            </Link>
           </li>
         </ul>
       </nav>
@@ -130,4 +133,4 @@ const mapDispatchToProps = {
   clearUserData,
 };
 
-export default connect(mapStateToProps,mapDispatchToProps)(Navbar);
+export default connect(mapStateToProps, mapDispatchToProps)(Navbar);

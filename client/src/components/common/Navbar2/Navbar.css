@@ -14,10 +14,10 @@ header {
     #3498db,
     #2c3e50
   ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #3498db, #2c3e50);
-
-  padding: 0 20px;
-  color: #fff;
+  /* background: linear-gradient(to right, #3498db, #2c3e50); */
+  background: snow;
+  padding: 0px 20px;
+  border-bottom: 1px solid grey;
 }
 
 .brand-logo {
@@ -53,32 +53,38 @@ header > nav {
 }
 .navigation li a {
   height: 38px;
-  color: #fff;
+  color: black;
   padding: 6px 15px;
   font-size: 14px;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   text-align: center;
   display: flex;
   align-items: center;
   text-decoration: none;
   /* background-color:blue */
 }
+
+/*
 .navigation li a:hover {
   transform: scale(1.02);
 }
-.navigation li:hover::after {
+*/
+ .navigation li:hover::after {
   content: "";
   display: flex;
   width: 100%;
   justify-items: center;
-  height: 2px;
-  background-color: pink;
-}
-.navigation li a i {
+  height: 4px;
+  background-color: grey;
+} 
+
+.navigation li a svg {
   width: auto;
   font-size: 16px;
   margin: 4px 4px 4px 4px;
 }
+
+
 .show-menu-btn,
 .hide-menu-btn {
   transition: 0.4s;
@@ -106,21 +112,23 @@ header > nav {
   top: 40px;
   left: 50%;
   transform: translateX(-50%);
-  color: black;
-  width: 90vw;
-  height: 400px;
+  width: 88vw;
+  height: 280px;
   padding-top: 32px;
   display: flex;
   justify-content: space-evenly;
-  background: linear-gradient(to right, #3498db, #2c3e50);
+  background: linear-gradient(to right, grey, #2c3e50);
   z-index: 10;
+  color: snow;
 }
-
-.profile-dropdown{
+hr {
+  background-color: snow;
+}
+.profile-dropdown {
   background: seagreen;
-  color:blue;
+  color: blue;
   width: 320px;
-  left:80vw;
+  left: 80vw;
 }
 
 .navigation li .dropdown-div ul {
@@ -128,8 +136,11 @@ header > nav {
   flex-direction: column;
 }
 
-.navigation li .dropdown-div ul li{
+.navigation li .dropdown-div ul li {
   height: auto;
+}
+.navigation li .dropdown-div ul li a {
+  color: white;
 }
 
 .navigation li:hover .dropdown-div {

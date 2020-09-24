@@ -4,8 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 // import logo from "./logo.svg";
 import "./App.css";
 import Home from "../components/Home";
-import Nav2 from "./common/Navbar2";
-import ProductList from "./products/ProductList";
+import Nav from "./common/Navbar2";
 import CartDetail from "./cart/CartDetail";
 import Err404 from "./common/Err404";
 
@@ -25,15 +24,13 @@ class App extends Component {
     return (
       <div>
         <Router>
-          <Nav2 />
+          <Nav />
           <Switch>
             <Route exact path="/" component={Home} />
-            <Route path="/products" exact component={ProductList} />
             <Route path="/cart" component={CartDetail} />
             <Route exact path="/auth/google" component={Google} />
             <Route exact path="/auth/facebook" component={Facebook} />
             <Route exact path="/checkout" component={CheckoutPage} />
-            <Route exact path="/nav" component={Nav2} />
             <Route exact path="/slideshow" component={SlideShow} />
             <Route path="/wishlist" component={Wishlist} />
             <Route

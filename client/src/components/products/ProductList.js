@@ -2,7 +2,7 @@ import React, { Component, memo } from "react";
 import { connect } from "react-redux";
 import { loadProducts } from "../../redux/actions/wishlistActions";
 
-import ProductCard from "./ProductCard";
+import ProductCard from "./NewCard";
 import Loader from "../common/Loader";
 
 export class ProductList extends Component {
