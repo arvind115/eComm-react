@@ -2,7 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 import catalogues from "./catalouge";
-import CartIcon from "../../cart/NavCartIcon";
+import NavCartIcon from "../../cart/NavCartIcon";
+import UserSvg from "../../common/UserSvg";
+import SignInSvg from "../../common/SignInSvg";
+import WishlistSvg from "../../common/WishlistSVg";
 
 import { connect } from "react-redux";
 import { clearUserData } from "../../../redux/actions/userActions";
@@ -80,7 +83,11 @@ const Navbar = (props) => {
         <ul className="navigation right">
           <li>
             <Link to="/">
-              <i className="fas fa-user"></i> Profile
+              {props.loggedIn ? (
+                <UserSvg fill={"royalblue"} />
+              ) : (
+                <SignInSvg fill={"black"} />
+              )}
             </Link>
             <div className="dropdown-div profile-dropdown">
               <ul>
@@ -109,11 +116,13 @@ const Navbar = (props) => {
             </div>
           </li>
           <li>
-            <Link to="/wishlist">Wishlist</Link>
+            <Link to="/wishlist">
+              <WishlistSvg fill={props.wishlisted ? "green" : "black"} />
+            </Link>
           </li>
           <li>
             <Link to="/cart">
-              <CartIcon className={'cartIcon'}/>
+              <NavCartIcon />
             </Link>
           </li>
         </ul>
@@ -122,9 +131,11 @@ const Navbar = (props) => {
   );
 };
 
-function mapStateToProps({ user }, ownProps) {
+function mapStateToProps({ user, wishlist }, ownProps) {
   return {
     user,
+    loggedIn: user.name !== undefined,
+    wishlisted: wishlist.length > 0,
     ownProps,
   };
 }

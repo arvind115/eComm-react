@@ -7,6 +7,12 @@
   pointer-events: none;
 }
 
+/* own */
+.navIconSvg {
+  width: 20px;
+  height: 20px;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

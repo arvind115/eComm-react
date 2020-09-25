@@ -45,7 +45,9 @@
   font-size: 12px;
   line-height: 12px;
   margin-bottom: 4px;
-  text-overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow:hidden;
   text-align: center;
   /* background: pink; */
 }

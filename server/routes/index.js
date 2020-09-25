@@ -120,7 +120,7 @@ router.get("/:products", (req, res) => {
       if (err) throw err;
       coll.find({}).toArray((err, data) => {
         if (err) throw err;
-        res.status(200).json(data.slice(0, 5));
+        res.status(200).json(data);
       });
     });
   } catch (err) {

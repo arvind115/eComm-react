@@ -1,7 +1,7 @@
 import React from "react";
-import "./Cart.css";
+import "./CartSvg.css";
 
-export default function Cart(props) {
+export default function CartSvg(props) {
   return (
     <svg role="img" viewBox="0 0 448 512" className={props.className}>
       <path

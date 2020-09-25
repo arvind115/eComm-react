@@ -1,13 +1,14 @@
 .cartIcon {
-  width: 20px;
-  height: 20px;
   left: 10px;
-  top: 8px;
+  top: 4px;
   position: relative;
 }
 .itemHolder {
   width: 14px;
   height: 14px;
+  right:0px;
+  top:-4px;
+  position: relative;
   font-size: 10px;
   line-height: 14px;
   border-radius: 50%;

@@ -31,27 +31,10 @@ const ProductLoader = (props) => {
 
   return (
     <div>
-      <p>
-        Heart clicked = {heartClicked === true ? <b>True</b> : <b>False</b>}
-      </p>
       {loading ? (
         <Loader />
       ) : heartClicked && !props.loggedIn ? (
-        <>
-          <p>
-            Route to login page ={" "}
-            {(heartClicked && !props.loggedIn) === true ? (
-              <b>True</b>
-            ) : (
-              <b>False</b>
-            )}
-          </p>
-          <p>
-            User logged in ={" "}
-            {props.loggedIn === true ? <b>True</b> : <b>False</b>}
-          </p>
-          <LoginRequired previous={props.collection} />
-        </>
+        <LoginRequired previous={props.collection} />
       ) : (
         products.map((product, ind) => (
           <ProductCard
