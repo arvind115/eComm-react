@@ -14,7 +14,6 @@ const ListMaker = (props) => {
   return (
     <ul>
       <h6>{props.name}</h6>
-      <hr />
       {props.types.map((type) => (
         <li key={type[0]}>
           <Link to={`/${type[0]}`}>{`${type[1]}`}</Link>
@@ -61,7 +60,7 @@ const Navbar = (props) => {
       <nav>
         <ul className="navigation">
           {catalogues.map((catalogue) => (
-            <li key={catalogue.main}>
+            <li key={catalogue.main} className={catalogue.main}>
               <Link to={catalogue.main}>{catalogue.main}</Link>
               <DropdownMaker sub={catalogue.sub} />
             </li>
@@ -82,47 +81,51 @@ const Navbar = (props) => {
         </div> */}
         <ul className="navigation right">
           <li>
-            <Link to="/">
+            <Link to="">
               {props.loggedIn ? (
                 <UserSvg fill={"royalblue"} />
               ) : (
-                <SignInSvg fill={"black"} />
+                <SignInSvg fill={"grey"} />
               )}
+              <div className="navtext">Profile</div>
             </Link>
             <div className="dropdown-div profile-dropdown">
-              <ul>
-                <li>
-                  <div className="profile-top">
-                    {props.user.name !== undefined ? (
-                      <>
-                        <p>{props.user.name}</p>
-                        <button onClick={signOut}>Sign Out</button>
-                      </>
-                    ) : (
-                      <>
-                        <p>Welcome! To access account and manage orders</p>
-                        <Link to="/auth/google">Sign in</Link>
-                      </>
-                    )}
-                  </div>
-                </li>
-                <li>
-                  <Link to="/wishlist">Wishlist</Link>
-                </li>
-                <li>
-                  <Link to="/">Orders</Link>
-                </li>
-              </ul>
+              <div className="innerDiv">
+                <div className="profile-top">
+                  {props.user.name !== undefined ? (
+                    <>
+                      <p>{props.user.name}</p>
+                      <button onClick={signOut}>Sign Out</button>
+                    </>
+                  ) : (
+                    <>
+                      <div className="infoRow boldFont">Welcome!</div>
+                      <div className="infoRow">
+                        To access account and manage orders
+                      </div>
+                      <div className="signInRow">
+                        <Link to="/auth/google" className="signIn">
+                          Sign in
+                        </Link>
+                      </div>
+                    </>
+                  )}
+                </div>
+                <Link to="/wishlist">Wishlist</Link>
+                <Link to="/">Orders</Link>
+              </div>
             </div>
           </li>
           <li>
             <Link to="/wishlist">
-              <WishlistSvg fill={props.wishlisted ? "green" : "black"} />
+              <WishlistSvg fill={props.wishlisted ? "green" : "grey"} />
+              <div className="navtext">Wishlist</div>
             </Link>
           </li>
           <li>
             <Link to="/cart">
               <NavCartIcon />
+              <div className="navtext">Bag</div>
             </Link>
           </li>
         </ul>

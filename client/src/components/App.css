@@ -9,9 +9,14 @@
 
 /* own */
 .navIconSvg {
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
 }
+
+.boldFont {
+  font-weight: 600;
+}
+/* own */
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {

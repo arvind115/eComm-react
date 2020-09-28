@@ -5,7 +5,7 @@
   font-family: arial;
 }
 header {
-  height: 40px;
+  height: 60px;
   width: 100%;
   float: left;
   background: #2c3e50; /* fallback for old browsers */
@@ -17,7 +17,7 @@ header {
   /* background: linear-gradient(to right, #3498db, #2c3e50); */
   background: snow;
   padding: 0px 20px;
-  border-bottom: 1px solid grey;
+  /* border-bottom: 1px solid grey; */
 }
 
 .brand-logo {
@@ -48,35 +48,42 @@ header > nav {
 .navigation li {
   list-style: none;
   float: left;
-  height: 38px;
+  height: 60px;
   /* background-color:yellow; */
 }
-.navigation li a {
-  height: 38px;
+.navigation > li > a {
+  height: 56px;
   color: black;
-  padding: 6px 15px;
+  padding: 0px 15px;
   font-size: 14px;
-  /* text-transform: uppercase; */
+  letter-spacing: 0.3px;
+  color: #282c3f;
+  font-weight: 600;
   text-align: center;
   display: flex;
   align-items: center;
   text-decoration: none;
-  /* background-color:blue */
+  /* background-color:blue; */
+  position: relative;
 }
-
-/*
-.navigation li a:hover {
-  transform: scale(1.02);
+.navigation > li.MEN:hover {
+  border-bottom: 4px solid #ee5f73;
 }
-*/
- .navigation li:hover::after {
-  content: "";
-  display: flex;
-  width: 100%;
-  justify-items: center;
-  height: 4px;
-  background-color: grey;
-} 
+.navigation > li.MEN .dropdown-div ul h6 {
+  color: #ee5f73;
+}
+.navigation > li.WOMEN:hover {
+  border-bottom: 4px solid #fb56c1;
+}
+.navigation > li.WOMEN .dropdown-div ul h6 {
+  color: #fb56c1;
+}
+.navigation > li.ESSENTIALS:hover {
+  border-bottom: 4px solid #f2c210;
+}
+.navigation > li.ESSENTIALS .dropdown-div ul h6 {
+  color: #f2c210;
+}
 
 .navigation li a svg {
   width: auto;
@@ -84,6 +91,16 @@ header > nav {
   margin: 4px 4px 4px 4px;
 }
 
+.navigation li a .navtext {
+  width: 100%;
+  height: 20px;
+  position: absolute;
+  top: 38px;
+  left: 0px;
+  font-size: 10px;
+  font-weight: bolder;
+  /* background:blue; */
+}
 
 .show-menu-btn,
 .hide-menu-btn {
@@ -109,7 +126,7 @@ header > nav {
 .dropdown-div {
   visibility: hidden;
   position: absolute;
-  top: 40px;
+  top: 60px;
   left: 50%;
   transform: translateX(-50%);
   width: 88vw;
@@ -117,30 +134,39 @@ header > nav {
   padding-top: 32px;
   display: flex;
   justify-content: space-evenly;
-  background: linear-gradient(to right, grey, #2c3e50);
+  background: snow;
   z-index: 10;
-  color: snow;
 }
-hr {
-  background-color: snow;
+.navigation > li .dropdown-div ul h6 {
+  font-size: 14px;
+  line-height: 26px;
+  font-weight: 600;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
-.profile-dropdown {
-  background: seagreen;
-  color: blue;
-  width: 320px;
-  left: 80vw;
-}
-
 .navigation li .dropdown-div ul {
   display: flex;
   flex-direction: column;
 }
 
 .navigation li .dropdown-div ul li {
-  height: auto;
+  height: 26px;
+  width: 100%;
+  font-size: 14px;
+  cursor: pointer;
 }
 .navigation li .dropdown-div ul li a {
-  color: white;
+  color: #282c3f;
+  line-height: 23px !important;
+  font-weight: 400;
+  display: block;
+  text-decoration: none;
+  /* transition: all 0.3s ease-in-out; */
+}
+.navigation li .dropdown-div ul li > a:hover {
+  font-weight: 550;
+  /* transform: scale(1.01); */
 }
 
 .navigation li:hover .dropdown-div {
@@ -149,8 +175,60 @@ hr {
 .dropdown-div:focus {
   visibility: visible;
 }
+.profile-dropdown {
+  width: 292px;
+  left: 85vw;
+  top: 62px;
+  z-index: 9;
+  -webkit-box-shadow: 0 1px 10px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.08);
+  -webkit-transition: opacity 0.2s ease-out, visibility 0.2s ease-out;
+  transition: opacity 0.2s ease-out, visibility 0.2s ease-out;
+  background-color: #fff;
+  color: #3e4152;
+  border: 1px solid #f5f5f6;
+  margin: -2px 0px;
+  padding-top: 0px;
+  padding: 18px;
+}
+.profile-dropdown .innerDiv {
+  /* position:absolute; */
+  /* width:100%; */
+  height: auto; 
+  background: pink;
+}
+.profile-dropdown .innerDiv .profile-top {
+  /* padding:20px; */
+  /* width:100%; */
+  height: auto;
+  background: red;
+}
 
-#search-form {
+.profile-dropdown .innerDiv .infoRow {
+  width: 100%;
+  display: block;
+  font-size: 14px;
+  color: #282c3f;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  background: blue;
+}
+.profile-dropdown > .innerDiv > .profile-top > .signInRow{
+  width: 100%;
+  height: 100px;
+  background:yellow;
+  position: absolute;
+}
+.signIn {
+  height: 60px !important;
+  width: 160px !important;
+  position: absolute;
+  padding:20px;
+  background: peachpuff;
+}
+
+/* #search-form {
   position: absolute;
   left: 50%;
   width: 400px;
@@ -168,7 +246,7 @@ hr {
   left: 50%;
   transform: translateX(-50%);
   outline: none;
-}
+} */
 /*-- Responsive CSS --*/
 @media screen and (max-width: 767px) {
   .show-menu-btn,
@@ -182,18 +260,6 @@ hr {
     height: 50vh;
     background: green;
     z-index: 10;
-    /* #000428;  */
-    /* background: -webkit-linear-gradient(
-            to right,
-            #004e92,
-            #000428
-          ); 
-          background: linear-gradient(
-            to right,
-            #004e92,
-            #000428
-          );  */
-
     top: -100%;
     left: 0;
     padding: 50px 0px;

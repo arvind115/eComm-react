@@ -3,7 +3,7 @@ import React from "react";
 export default function SignInSvg(props) {
   return (
     <svg
-      class="navIconSvg"
+      className="navIconSvg"
       role="img"
       viewBox="0 0 512 512"
     >

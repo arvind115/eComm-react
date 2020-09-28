@@ -1,7 +1,9 @@
 .cartIcon {
-  left: 10px;
-  top: 4px;
+  left: 8px;
+  top: 0px;
   position: relative;
+  width: 18px;
+  height: 18px;
 }
 .itemHolder {
   width: 14px;

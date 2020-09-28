@@ -1,6 +1,6 @@
 const catalogues = [
   {
-    main: "Men",
+    main: "MEN",
     sub: [
       {
         name: "Topwear",
@@ -29,7 +29,7 @@ const catalogues = [
     ],
   },
   {
-    main: "Women",
+    main: "WOMEN",
     sub: [
       {
         name: "Indian",
@@ -58,7 +58,7 @@ const catalogues = [
     ],
   },
   {
-    main: "Essentials",
+    main: "ESSENTIALS",
     sub: [
       {
         name: "Essentials",

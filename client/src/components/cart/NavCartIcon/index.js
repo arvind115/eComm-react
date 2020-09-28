@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 import CartSvg from "../../common/CartSvg";
 import "./NavCartIcon.css";
 
+// navIconSvg class css in App.css file
+
 function NavCartIcon(props) {
   return (
     <>
