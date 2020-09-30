@@ -88,11 +88,14 @@ class CheckoutForm extends Component {
         {this.props.amount > 0 ? (
           <form onSubmit={this.handleSubmit}>
             <CardSection />
-            <button disabled={!this.props.stripe}>Confirm order</button>
-            amount:{this.props.amount}
+            <br />
+            <div className="badge badge-primary">Amount :</div>&nbsp; 
+            <small>{this.props.amount}</small>
+            <br />
+            <button disabled={!this.props.stripe} className="btn btn-sm btn-success">Confirm order</button>
           </form>
         ) : (
-          <p>you product added to cart yet</p>
+          <p>No product added to cart yet</p>
         )}
       </>
     );

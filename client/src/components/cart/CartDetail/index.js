@@ -40,7 +40,10 @@ export class CartDetail extends Component {
               </tbody>
             </table>
             Total : {this.props.total}
-            <Link to="/checkout">Checkout</Link>
+            <br />
+            <Link to="/checkout" className="btn btn-sm btn-primary">
+              Checkout
+            </Link>
           </>
         )}
       </div>

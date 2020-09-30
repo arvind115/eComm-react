@@ -95,7 +95,7 @@ const Navbar = (props) => {
                   {props.user.name !== undefined ? (
                     <>
                       <p>{props.user.name}</p>
-                      <button onClick={signOut}>Sign Out</button>
+                      <button onClick={signOut} className="btn btn-outline-secondary">Sign Out</button>
                     </>
                   ) : (
                     <>
@@ -103,7 +103,7 @@ const Navbar = (props) => {
                       <div className="infoRow">
                         To access account and manage orders
                       </div>
-                      <div className="signInRow">
+                      <div className="fullRow">
                         <Link to="/auth/google" className="signIn">
                           Sign in
                         </Link>
@@ -111,8 +111,12 @@ const Navbar = (props) => {
                     </>
                   )}
                 </div>
-                <Link to="/wishlist">Wishlist</Link>
-                <Link to="/">Orders</Link>
+                <div className="linkRow wishlist">
+                  <Link to="/wishlist">Wishlist</Link>
+                </div>
+                <div className="linkRow orders">
+                  <Link to="/">Orders</Link>
+                </div>
               </div>
             </div>
           </li>

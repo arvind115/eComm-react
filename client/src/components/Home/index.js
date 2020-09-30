@@ -10,7 +10,7 @@ export class Home extends Component {
   render() {
     return (
       <>
-        {/* <SlideShow /> */}
+        <SlideShow />
         <div className="offerDiv">
           <a href="/shop/sbi10">
             <img src={sbioffer} alt="sbi-offer" />

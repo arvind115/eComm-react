@@ -16,7 +16,7 @@ export function CheckoutPage() {
   return (
     <div className="container">
       <div className="row">
-        <div className="col-3">
+        <div className="col-3 offset-md-3">
           <Elements stripe={stripePromise} total={200}>
             <CheckoutForm total={100} />
           </Elements>
